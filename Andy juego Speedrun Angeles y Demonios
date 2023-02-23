@@ -1,0 +1,36 @@
+//Definimos algunas variables
+let angeles = 0;
+let demonios = 0;
+let nivelActual = 1;
+let tiempoRestante = 60;
+let tiempoMaximo = 60;
+
+//Definimos la funcion de actualizacion de nivel
+function actualizarNivel(){
+    nivelActual++;
+    angeles = 0;
+    demonios = 0;
+    tiempoRestante = tiempoMaximo;
+}
+
+//Definimos la funcion para actualizar los puntos
+function actualizarPuntos(angelesPuntos, demoniosPuntos){
+    angeles += angelesPuntos;
+    demonios += demoniosPuntos;
+    tiempoRestante--;
+    
+    //Comprobamos si el tiempo se ha acabado
+    if (tiempoRestante <= 0){
+        actualizarNivel();
+    }
+}
+
+//Definimos la funcion para comprobar si el jugador ha ganado
+function comprobarGanador(){
+    if (angeles > demonios){
+        console.log("¡Has ganado!");
+    }
+    else {
+        console.log("¡Has perdido!");
+    }
+}
